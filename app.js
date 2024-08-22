@@ -12,6 +12,7 @@ const { Queue } = require('bullmq');
 const compileRouter = require('./Routes/compile.js');
 const fileRouter = require('./Routes/hexfilegive.js');
 const statusRouter = require("./Routes/status.js")
+const jobStatusRouter = require("./Routes/statusWithMessage.js");
 
 app.use(logger('dev'));
 app.use(session({
@@ -36,6 +37,7 @@ app.use(bodyParser.json());     // to support JSON-encoded bodies
 app.use("/compile",compileRouter)
 app.use("/getthefile",fileRouter)
 app.use("/status",statusRouter)
+app.use("/job",jobStatusRouter) //added
 // app.use("/compile",adminRouter)
 
 app.listen(port, () => {
